@@ -109,84 +109,84 @@ function renderStars(count) {
 // ===== MATCH DATA (First Round - Argentine Time GMT-3) =====
 const matches = [
     // JUN 11
-    { date: "2026-06-11", time: "16:00", team1: "México", team2: "Sudáfrica", channel: "DSports" },
+    { date: "2026-06-11", time: "16:00", team1: "México", team2: "Sudáfrica", channel: "DSports / Telefe" },
     { date: "2026-06-11", time: "23:00", team1: "Corea del Sur", team2: "Chequia", channel: "DSports" },
     // JUN 12
     { date: "2026-06-12", time: "16:00", team1: "Canadá", team2: "Bosnia y Herz.", channel: "DSports" },
-    { date: "2026-06-12", time: "22:00", team1: "Estados Unidos", team2: "Paraguay", channel: "DSports" },
+    { date: "2026-06-12", time: "22:00", team1: "Estados Unidos", team2: "Paraguay", channel: "DSports / Telefe" },
     // JUN 13
     { date: "2026-06-13", time: "16:00", team1: "Catar", team2: "Suiza", channel: "DSports" },
-    { date: "2026-06-13", time: "19:00", team1: "Brasil", team2: "Marruecos", channel: "DSports" },
+    { date: "2026-06-13", time: "19:00", team1: "Brasil", team2: "Marruecos", channel: "DSports / Telefe" },
     { date: "2026-06-13", time: "22:00", team1: "Haití", team2: "Escocia", channel: "DSports" },
     // JUN 14
     { date: "2026-06-14", time: "01:00", team1: "Australia", team2: "Turquía", channel: "DSports" },
     { date: "2026-06-14", time: "02:00", team1: "Alemania", team2: "Curazao", channel: "DSports" },
-    { date: "2026-06-14", time: "17:00", team1: "Países Bajos", team2: "Japón", channel: "DSports" },
-    { date: "2026-06-14", time: "20:00", team1: "Costa de Marfil", team2: "Ecuador", channel: "DSports" },
+    { date: "2026-06-14", time: "17:00", team1: "Países Bajos", team2: "Japón", channel: "DSports / Telefe" },
+    { date: "2026-06-14", time: "20:00", team1: "Costa de Marfil", team2: "Ecuador", channel: "DSports / Telefe" },
     { date: "2026-06-14", time: "23:00", team1: "Suecia", team2: "Túnez", channel: "DSports" },
     // JUN 15
     { date: "2026-06-15", time: "13:00", team1: "España", team2: "Cabo Verde", channel: "DSports" },
     { date: "2026-06-15", time: "16:00", team1: "Bélgica", team2: "Egipto", channel: "DSports" },
-    { date: "2026-06-15", time: "19:00", team1: "Arabia Saudí", team2: "Uruguay", channel: "DSports" },
+    { date: "2026-06-15", time: "19:00", team1: "Arabia Saudí", team2: "Uruguay", channel: "DSports / Telefe" },
     { date: "2026-06-15", time: "21:00", team1: "RI de Irán", team2: "Nueva Zelanda", channel: "DSports" },
     // JUN 16
     { date: "2026-06-16", time: "16:00", team1: "Francia", team2: "Senegal", channel: "DSports" },
     { date: "2026-06-16", time: "19:00", team1: "Irak", team2: "Noruega", channel: "DSports" },
-    { date: "2026-06-16", time: "22:00", team1: "Argentina", team2: "Argelia", channel: "DSports / TVP" },
+    { date: "2026-06-16", time: "22:00", team1: "Argentina", team2: "Argelia", channel: "DSports / Telefe / TVP" },
     // JUN 17
     { date: "2026-06-17", time: "01:00", team1: "Austria", team2: "Jordania", channel: "DSports" },
     { date: "2026-06-17", time: "14:00", team1: "Portugal", team2: "RD Congo", channel: "DSports" },
-    { date: "2026-06-17", time: "17:00", team1: "Inglaterra", team2: "Croacia", channel: "DSports" },
+    { date: "2026-06-17", time: "17:00", team1: "Inglaterra", team2: "Croacia", channel: "DSports / Telefe" },
     { date: "2026-06-17", time: "20:00", team1: "Ghana", team2: "Panamá", channel: "DSports" },
     { date: "2026-06-17", time: "23:00", team1: "Uzbekistán", team2: "Colombia", channel: "DSports" },
     // JUN 18
     { date: "2026-06-18", time: "13:00", team1: "Chequia", team2: "Sudáfrica", channel: "DSports" },
-    { date: "2026-06-18", time: "16:00", team1: "Suiza", team2: "Bosnia y Herz.", channel: "DSports" },
+    { date: "2026-06-18", time: "16:00", team1: "Suiza", team2: "Bosnia y Herz.", channel: "DSports / Telefe" },
     { date: "2026-06-18", time: "19:00", team1: "Canadá", team2: "Catar", channel: "DSports" },
     { date: "2026-06-18", time: "22:00", team1: "México", team2: "Corea del Sur", channel: "DSports" },
     // JUN 19
     { date: "2026-06-19", time: "16:00", team1: "Estados Unidos", team2: "Australia", channel: "DSports" },
-    { date: "2026-06-19", time: "19:00", team1: "Escocia", team2: "Marruecos", channel: "DSports" },
+    { date: "2026-06-19", time: "19:00", team1: "Escocia", team2: "Marruecos", channel: "DSports / Telefe" },
     { date: "2026-06-19", time: "22:00", team1: "Brasil", team2: "Haití", channel: "DSports" },
     // JUN 20
     { date: "2026-06-20", time: "01:00", team1: "Turquía", team2: "Paraguay", channel: "DSports" },
     { date: "2026-06-20", time: "14:00", team1: "Países Bajos", team2: "Suecia", channel: "DSports" },
-    { date: "2026-06-20", time: "17:00", team1: "Alemania", team2: "Costa de Marfil", channel: "DSports" },
+    { date: "2026-06-20", time: "17:00", team1: "Alemania", team2: "Costa de Marfil", channel: "DSports / Telefe" },
     { date: "2026-06-20", time: "21:00", team1: "Ecuador", team2: "Curazao", channel: "DSports" },
     // JUN 21
     { date: "2026-06-21", time: "01:00", team1: "Túnez", team2: "Japón", channel: "DSports" },
-    { date: "2026-06-21", time: "13:00", team1: "España", team2: "Arabia Saudí", channel: "DSports" },
+    { date: "2026-06-21", time: "13:00", team1: "España", team2: "Arabia Saudí", channel: "DSports / Telefe" },
     { date: "2026-06-21", time: "16:00", team1: "Bélgica", team2: "RI de Irán", channel: "DSports" },
-    { date: "2026-06-21", time: "19:00", team1: "Uruguay", team2: "Cabo Verde", channel: "DSports" },
+    { date: "2026-06-21", time: "19:00", team1: "Uruguay", team2: "Cabo Verde", channel: "DSports / Telefe" },
     { date: "2026-06-21", time: "22:00", team1: "Nueva Zelanda", team2: "Egipto", channel: "DSports" },
     // JUN 22
-    { date: "2026-06-22", time: "14:00", team1: "Argentina", team2: "Austria", channel: "DSports / TVP" },
+    { date: "2026-06-22", time: "14:00", team1: "Argentina", team2: "Austria", channel: "DSports / Telefe / TVP" },
     { date: "2026-06-22", time: "18:00", team1: "Francia", team2: "Irak", channel: "DSports" },
     { date: "2026-06-22", time: "21:00", team1: "Noruega", team2: "Senegal", channel: "DSports" },
     // JUN 23
     { date: "2026-06-23", time: "00:00", team1: "Jordania", team2: "Argelia", channel: "DSports" },
-    { date: "2026-06-23", time: "14:00", team1: "Portugal", team2: "Uzbekistán", channel: "DSports" },
-    { date: "2026-06-23", time: "17:00", team1: "Inglaterra", team2: "Ghana", channel: "DSports" },
+    { date: "2026-06-23", time: "14:00", team1: "Portugal", team2: "Uzbekistán", channel: "DSports / Telefe" },
+    { date: "2026-06-23", time: "17:00", team1: "Inglaterra", team2: "Ghana", channel: "DSports / Telefe" },
     { date: "2026-06-23", time: "20:00", team1: "Panamá", team2: "Croacia", channel: "DSports" },
     { date: "2026-06-23", time: "23:00", team1: "Colombia", team2: "RD Congo", channel: "DSports" },
     // JUN 24
     { date: "2026-06-24", time: "16:00", team1: "Suiza", team2: "Canadá", channel: "DSports" },
     { date: "2026-06-24", time: "16:00", team1: "Bosnia y Herz.", team2: "Catar", channel: "DSports" },
-    { date: "2026-06-24", time: "19:00", team1: "Escocia", team2: "Brasil", channel: "DSports" },
+    { date: "2026-06-24", time: "19:00", team1: "Escocia", team2: "Brasil", channel: "DSports / Telefe" },
     { date: "2026-06-24", time: "19:00", team1: "Marruecos", team2: "Haití", channel: "DSports" },
     { date: "2026-06-24", time: "22:00", team1: "Chequia", team2: "México", channel: "DSports" },
     { date: "2026-06-24", time: "22:00", team1: "Sudáfrica", team2: "Corea del Sur", channel: "DSports" },
     // JUN 25
-    { date: "2026-06-25", time: "17:00", team1: "Ecuador", team2: "Alemania", channel: "DSports" },
+    { date: "2026-06-25", time: "17:00", team1: "Ecuador", team2: "Alemania", channel: "DSports / Telefe" },
     { date: "2026-06-25", time: "17:00", team1: "Curazao", team2: "Costa de Marfil", channel: "DSports" },
     { date: "2026-06-25", time: "20:00", team1: "Túnez", team2: "Países Bajos", channel: "DSports" },
     { date: "2026-06-25", time: "20:00", team1: "Japón", team2: "Suecia", channel: "DSports" },
     // JUN 26
     { date: "2026-06-26", time: "01:00", team1: "Turquía", team2: "Estados Unidos", channel: "DSports" },
-    { date: "2026-06-26", time: "01:00", team1: "Paraguay", team2: "Australia", channel: "DSports" },
-    { date: "2026-06-26", time: "16:00", team1: "Noruega", team2: "Francia", channel: "DSports" },
+    { date: "2026-06-26", time: "01:00", team1: "Paraguay", team2: "Australia", channel: "DSports / Telefe" },
+    { date: "2026-06-26", time: "16:00", team1: "Noruega", team2: "Francia", channel: "DSports / Telefe" },
     { date: "2026-06-26", time: "16:00", team1: "Senegal", team2: "Irak", channel: "DSports" },
-    { date: "2026-06-26", time: "21:00", team1: "Uruguay", team2: "España", channel: "DSports" },
+    { date: "2026-06-26", time: "21:00", team1: "Uruguay", team2: "España", channel: "DSports / Telefe" },
     { date: "2026-06-26", time: "21:00", team1: "Cabo Verde", team2: "Arabia Saudí", channel: "DSports" },
     // JUN 27
     { date: "2026-06-27", time: "00:00", team1: "Nueva Zelanda", team2: "Bélgica", channel: "DSports" },
@@ -196,7 +196,7 @@ const matches = [
     { date: "2026-06-27", time: "20:30", team1: "Colombia", team2: "Portugal", channel: "DSports" },
     { date: "2026-06-27", time: "20:30", team1: "RD Congo", team2: "Uzbekistán", channel: "DSports" },
     // JUN 28
-    { date: "2026-06-28", time: "01:00", team1: "Jordania", team2: "Argentina", channel: "DSports / TVP" },
+    { date: "2026-06-28", time: "01:00", team1: "Jordania", team2: "Argentina", channel: "DSports / Telefe / TVP" },
     { date: "2026-06-28", time: "01:00", team1: "Argelia", team2: "Austria", channel: "DSports" },
 ];
 
