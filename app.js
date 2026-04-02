@@ -235,9 +235,9 @@ document.getElementById("argMatches").textContent = matches.filter(isArgentina).
 // ===== BUILD DATE FILTERS =====
 const dateRanges = [
     { id: "all", label: "Todos" },
-    { id: "r1", label: "Fecha 1 (11 al 16 Jun)", start: "2026-06-11", end: "2026-06-16" },
-    { id: "r2", label: "Fecha 2 (17 al 22 Jun)", start: "2026-06-17", end: "2026-06-22" },
-    { id: "r3", label: "Fecha 3 (23 al 28 Jun)", start: "2026-06-23", end: "2026-06-28" }
+    { id: "r1", label: "11 Jun - 16 Jun", start: "2026-06-11", end: "2026-06-16" },
+    { id: "r2", label: "17 Jun - 22 Jun", start: "2026-06-17", end: "2026-06-22" },
+    { id: "r3", label: "23 Jun - 28 Jun", start: "2026-06-23", end: "2026-06-28" }
 ];
 
 filtersContainer.innerHTML = "";
@@ -265,8 +265,8 @@ function render() {
     if (searchTerm) {
         const q = searchTerm.toLowerCase();
         filtered = filtered.filter(m =>
-            m.team1.toLowerCase().includes(q) ||
-            m.team2.toLowerCase().includes(q)
+            m.team1.toLowerCase().startsWith(q) ||
+            m.team2.toLowerCase().startsWith(q)
         );
     }
 
