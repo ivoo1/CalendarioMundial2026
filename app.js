@@ -233,23 +233,33 @@ document.getElementById("totalDays").textContent = uniqueDates.length;
 document.getElementById("argMatches").textContent = matches.filter(isArgentina).length;
 
 // ===== BUILD DATE FILTERS =====
-uniqueDates.forEach(date => {
+const dateRanges = [
+    { id: "all", label: "Todos" },
+    { id: "r1", label: "Fecha 1 (11 al 16 Jun)", start: "2026-06-11", end: "2026-06-16" },
+    { id: "r2", label: "Fecha 2 (17 al 22 Jun)", start: "2026-06-17", end: "2026-06-22" },
+    { id: "r3", label: "Fecha 3 (23 al 28 Jun)", start: "2026-06-23", end: "2026-06-28" }
+];
+
+filtersContainer.innerHTML = "";
+dateRanges.forEach(range => {
     const pill = document.createElement("button");
     pill.className = "filter-pill";
-    pill.dataset.date = date;
-    pill.textContent = formatDateShort(date);
+    if (range.id === "all") pill.classList.add("active");
+    pill.dataset.id = range.id;
+    pill.textContent = range.label;
     filtersContainer.appendChild(pill);
 });
 
 // ===== RENDER =====
-let activeDate = "all";
+let activeFilterId = "all";
 let searchTerm = "";
 
 function render() {
     let filtered = matches;
 
-    if (activeDate !== "all") {
-        filtered = filtered.filter(m => m.date === activeDate);
+    if (activeFilterId !== "all") {
+        const range = dateRanges.find(r => r.id === activeFilterId);
+        filtered = filtered.filter(m => m.date >= range.start && m.date <= range.end);
     }
 
     if (searchTerm) {
@@ -352,7 +362,7 @@ filtersContainer.addEventListener("click", e => {
 
     filtersContainer.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
     pill.classList.add("active");
-    activeDate = pill.dataset.date;
+    activeFilterId = pill.dataset.id;
     render();
 });
 
