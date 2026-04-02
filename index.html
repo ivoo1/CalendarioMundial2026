@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Calendario de partidos de la primera ronda de la Copa Mundial FIFA 2026 con horarios de Argentina">
+    <title>Copa Mundial FIFA 2026 - Calendario de Partidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-noise"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="trophy-icon">🏆</div>
+                <div>
+                    <h1>Copa Mundial FIFA 2026</h1>
+                    <p class="subtitle">Calendario de Partidos · Primera Ronda · Hora Argentina 🇦🇷</p>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number" id="totalMatches">0</span>
+                    <span class="stat-label">Partidos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalDays">0</span>
+                    <span class="stat-label">Días</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="argMatches">0</span>
+                    <span class="stat-label"><img src="https://flagcdn.com/w20/ar.png" width="14" height="10" alt="AR"
+                            style="vertical-align:middle"> Argentina</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Featured Matches -->
+        <section class="featured-section">
+            <div class="section-title">
+                <span class="section-icon">🔥</span>
+                <h2>Partidos Destacados</h2>
+                <p class="section-subtitle">Los enfrentamientos más interesantes según ranking FIFA y rivalidades
+                    históricas</p>
+            </div>
+            <div class="featured-scroll">
+                <div class="featured-grid" id="featuredGrid">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Search -->
+        <div class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+                <input type="text" id="searchInput" placeholder="Buscar equipo..." autocomplete="off">
+                <button class="clear-btn" id="clearSearch" title="Limpiar búsqueda">✕</button>
+            </div>
+        </div>
+
+        <!-- Date filters -->
+        <div class="filters-wrapper">
+            <div class="filters" id="dateFilters">
+                <button class="filter-pill active" data-date="all">Todos</button>
+            </div>
+        </div>
+
+        <!-- All Matches title -->
+        <div class="section-title section-title-sm">
+            <span class="section-icon">📋</span>
+            <h2>Todos los Partidos</h2>
+        </div>
+
+        <!-- Match grid -->
+        <div class="matches-grid" id="matchesGrid">
+            <!-- Rendered by JS -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display:none;">
+            <span class="no-results-icon">⚽</span>
+            <p>No se encontraron partidos</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Horarios correspondientes a Argentina (GMT-3) · Datos basados en el calendario oficial FIFA</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
