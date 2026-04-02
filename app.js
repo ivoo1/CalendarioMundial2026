@@ -225,7 +225,6 @@ const filtersContainer = document.getElementById("dateFilters");
 const searchInput = document.getElementById("searchInput");
 const clearBtn = document.getElementById("clearSearch");
 const noResults = document.getElementById("noResults");
-const featuredGrid = document.getElementById("featuredGrid");
 
 // ===== STATS =====
 const uniqueDates = [...new Set(matches.map(m => m.date))];
@@ -241,57 +240,6 @@ uniqueDates.forEach(date => {
     pill.textContent = formatDateShort(date);
     filtersContainer.appendChild(pill);
 });
-
-// ===== FEATURED MATCHES =====
-function renderFeatured() {
-    // Score all matches and pick the best ones
-    const scored = matches.map(m => ({
-        ...m,
-        importance: getMatchImportance(m),
-        stars: getStars(getMatchImportance(m))
-    }));
-
-    // Top featured matches (4-5 stars)
-    const featured = scored
-        .filter(m => m.stars >= 4)
-        .sort((a, b) => b.importance - a.importance);
-
-    if (!featuredGrid) return;
-
-    featuredGrid.innerHTML = featured.map(m => {
-        const argClass = isArgentina(m) ? " argentina" : "";
-        const label = getImportanceLabel(m.stars);
-        const rivalryTag = isRivalry(m.team1, m.team2)
-            ? '<span class="rivalry-tag">⚔️ Rivalidad histórica</span>'
-            : '';
-
-        return `
-            <div class="featured-card${argClass}">
-                <div class="featured-top">
-                    <span class="featured-date">${formatDateShort(m.date)} · ${m.time}</span>
-                    <span class="featured-label">${label}</span>
-                </div>
-                <div class="featured-matchup">
-                    <div class="featured-team">
-                        ${getFlagImg(m.team1, 32)}
-                        <span>${m.team1}</span>
-                        <span class="featured-rank">#${fifaRanking[m.team1] || '?'}</span>
-                    </div>
-                    <div class="featured-vs">VS</div>
-                    <div class="featured-team">
-                        ${getFlagImg(m.team2, 32)}
-                        <span>${m.team2}</span>
-                        <span class="featured-rank">#${fifaRanking[m.team2] || '?'}</span>
-                    </div>
-                </div>
-                <div class="featured-bottom">
-                    <div class="featured-stars">${renderStars(m.stars)}</div>
-                    ${rivalryTag}
-                </div>
-            </div>
-        `;
-    }).join("");
-}
 
 // ===== RENDER =====
 let activeDate = "all";
@@ -331,7 +279,26 @@ function render() {
         const section = document.createElement("div");
         section.className = "date-section";
 
-        const matchesForDay = grouped[date];
+        // Score matches and calculate importance
+        let matchesForDay = grouped[date].map(m => {
+            const importance = getMatchImportance(m);
+            return {
+                ...m,
+                importance: importance,
+                stars: getStars(importance),
+                isFeatured: getStars(importance) >= 4,
+                isArg: isArgentina(m)
+            };
+        });
+
+        // Sort: Argentina first, then featured (chronological among themselves), then non-featured chronologically
+        matchesForDay.sort((a, b) => {
+            if (a.isArg && !b.isArg) return -1;
+            if (!a.isArg && b.isArg) return 1;
+            if (a.isFeatured && !b.isFeatured) return -1;
+            if (!a.isFeatured && b.isFeatured) return 1;
+            return a.time.localeCompare(b.time);
+        });
 
         section.innerHTML = `
             <div class="date-header">
@@ -350,12 +317,14 @@ function render() {
 
 function renderCard(m) {
     const argClass = isArgentina(m) ? " argentina" : "";
-    const importance = getMatchImportance(m);
-    const stars = getStars(importance);
+    const importance = m.importance !== undefined ? m.importance : getMatchImportance(m);
+    const stars = m.stars !== undefined ? m.stars : getStars(importance);
+    const isFeatured = m.isFeatured !== undefined ? m.isFeatured : stars >= 4;
     const showStars = stars >= 3;
 
     return `
-        <div class="match-card${argClass}">
+        <div class="match-card${argClass}${isFeatured ? ' featured-in-list' : ''}">
+            ${isFeatured ? '<div class="popular-badge">🔥 Partido Popular</div>' : ''}
             <div class="arg-badge">${getFlagImg("Argentina", 14)} ARG</div>
             <div class="match-time">
                 <div class="time">${m.time}</div>
@@ -403,5 +372,4 @@ clearBtn.addEventListener("click", () => {
 });
 
 // ===== INIT =====
-renderFeatured();
 render();
