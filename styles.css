@@ -792,6 +792,45 @@ footer {
     margin: 0 auto;
 }
 
+.made-by {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.github-link svg {
+    transition: var(--transition);
+}
+
+.github-link:hover svg {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     header {
